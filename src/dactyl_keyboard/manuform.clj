@@ -382,11 +382,11 @@
        (translate [-12 -16 9])))
 (defn thumb-tl-place [c shape]
   (let [minidox-style? (get c :configuration-minidox-style?)
-        movement (if minidox-style? [-35 -15 -2] [-32 -15 -2])
-        z-rotation (if minidox-style? 20 10)]
+        movement (if minidox-style? [-22 -18 -8] )
+        z-rotation (if minidox-style? 18 12)]
     (->> shape
-         (rotate (deg2rad  10) [1 0 0])
-         (rotate (deg2rad -23) [0 1 0])
+         (rotate (deg2rad 5) [1 0 0])
+         (rotate (deg2rad -64) [0 1 0])
          (rotate (deg2rad  z-rotation) [0 0 1])
          (translate (thumborigin c))
          (translate movement))))
