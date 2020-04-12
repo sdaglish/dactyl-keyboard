@@ -8,6 +8,7 @@
 
 (def column-style :standard)
 
+; This has been manually changed to produce the stagger required for each finger
 (defn column-offset
   "Determines how much 'stagger' the columns are
    0 = inner index finger's column.
@@ -22,9 +23,13 @@
     (cond (= column 2)  [0   0    -6.5]
           (>= column 4) [0   0     6]
           :else         [0   0     0])
-    (cond (= column 2)  [0   2.82 -6.5]
-          (>= column 4) [0  -13    6]
-          :else         [0   0     0])))
+    (cond (= column 0)  [0   -7     0]			; Inside index finger
+    	  (= column 1)  [0   -5     0]			; Index finger
+    	  (= column 2)  [0   2.82 -6.5]			; middle finger
+          (= column 3)	[0   -5	   0]			; ring finger
+          (= column 4)	[0  -15    6]			; pinky finger
+          (= column 5)	[0  -17    6]			; outer pinky finger
+          :else         [0   0     0])))		; just incase
 
 ; it dictates the location of the thumb cluster.
 ; the first member of the vector is x axis, second one y axis,
